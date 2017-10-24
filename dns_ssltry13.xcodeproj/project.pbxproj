@@ -13,6 +13,9 @@
 		EA6D05AC1F8582A20058CAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA6D05AA1F8582A20058CAB9 /* Main.storyboard */; };
 		EA6D05AE1F8582A20058CAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA6D05AD1F8582A20058CAB9 /* Assets.xcassets */; };
 		EA6D05B11F8582A20058CAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA6D05AF1F8582A20058CAB9 /* LaunchScreen.storyboard */; };
+		EA6D05BB1F8583C00058CAB9 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D05B91F8583C00058CAB9 /* libcrypto.a */; };
+		EA6D05BC1F8583C00058CAB9 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D05BA1F8583C00058CAB9 /* libssl.a */; };
+		EAC5C41F1F86480E00F687C0 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC5C41E1F86480E00F687C0 /* Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,10 @@
 		EA6D05AD1F8582A20058CAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA6D05B01F8582A20058CAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA6D05B21F8582A20058CAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA6D05B91F8583C00058CAB9 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = lib/libcrypto.a; sourceTree = "<group>"; };
+		EA6D05BA1F8583C00058CAB9 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = lib/libssl.a; sourceTree = "<group>"; };
+		EAC5C41D1F86480E00F687C0 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		EAC5C41E1F86480E00F687C0 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA6D05BB1F8583C00058CAB9 /* libcrypto.a in Frameworks */,
+				EA6D05BC1F8583C00058CAB9 /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,7 @@
 			children = (
 				EA6D05A01F8582A20058CAB9 /* dns_ssltry13 */,
 				EA6D059F1F8582A20058CAB9 /* Products */,
+				EA6D05B81F8583BF0058CAB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,8 @@
 		EA6D05A01F8582A20058CAB9 /* dns_ssltry13 */ = {
 			isa = PBXGroup;
 			children = (
+				EAC5C41D1F86480E00F687C0 /* Utils.h */,
+				EAC5C41E1F86480E00F687C0 /* Utils.m */,
 				EA6D05A41F8582A20058CAB9 /* AppDelegate.h */,
 				EA6D05A51F8582A20058CAB9 /* AppDelegate.m */,
 				EA6D05A71F8582A20058CAB9 /* ViewController.h */,
@@ -77,6 +89,15 @@
 				EA6D05A21F8582A20058CAB9 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA6D05B81F8583BF0058CAB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA6D05B91F8583C00058CAB9 /* libcrypto.a */,
+				EA6D05BA1F8583C00058CAB9 /* libssl.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +175,7 @@
 				EA6D05A91F8582A20058CAB9 /* ViewController.m in Sources */,
 				EA6D05A61F8582A20058CAB9 /* AppDelegate.m in Sources */,
 				EA6D05A31F8582A20058CAB9 /* main.m in Sources */,
+				EAC5C41F1F86480E00F687C0 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +298,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T2NR4WA7GR;
+				HEADER_SEARCH_PATHS = include;
 				INFOPLIST_FILE = dns_ssltry13/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/lib\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.si.dns-ssltry13";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -288,8 +316,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T2NR4WA7GR;
+				HEADER_SEARCH_PATHS = include;
 				INFOPLIST_FILE = dns_ssltry13/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/lib\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.si.dns-ssltry13";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -314,6 +348,7 @@
 				EA6D05B71F8582A20058CAB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

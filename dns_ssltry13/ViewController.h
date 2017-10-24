@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *textfield_input;
 
+- (IBAction)button_calculate:(id)sender;
 
 @end
 
